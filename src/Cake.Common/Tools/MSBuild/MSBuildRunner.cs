@@ -95,7 +95,7 @@ namespace Cake.Common.Tools.MSBuild
             if (settings.PlatformTarget.HasValue)
             {
                 var platform = settings.PlatformTarget.Value;
-                bool isSolution = string.Equals(projectFile.GetExtension(), ".sln", StringComparison.OrdinalIgnoreCase);
+                bool isSolution = projectFile.GetExtension().StartsWith(".sln", StringComparison.OrdinalIgnoreCase);
                 builder.Append(string.Concat("/p:Platform=", GetPlatformName(platform, isSolution)));
             }
 
